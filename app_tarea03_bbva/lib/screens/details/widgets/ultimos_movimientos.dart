@@ -1,29 +1,38 @@
-import 'package:app_tarea03_bbva/screens/details/details_screen.dart';
 import 'package:app_tarea03_bbva/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
-class TusCuentas extends StatelessWidget {
-  const TusCuentas({Key? key}) : super(key: key);
+class UltimosMovimientos extends StatelessWidget {
+  const UltimosMovimientos({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    List<String> getCuentas = ["001ah7297", "001ah7246", "001ah7277"];
-    List<String> getCodigos = ["*37265", "*36264", "*62396"];
-    List<String> getSaldos = ["20,000", "158,000", "77,000"];
+    List<String> getCuentas = [
+      "Su pago en efectivo",
+      "Spei enviado azteca",
+      "Su pago en efectivo"
+    ];
+    List<String> getCodigos = [
+      "Movimiento BBVA",
+      "Transferencia interbancaria",
+      "Movimiento BBVA"
+    ];
+    List<String> getSaldos = ["+ 1,600.00", "- 1,600.00", "1,600.00"];
+    List getColores = [Colors.green, Colors.red, Colors.blueGrey];
+
     return Container(
       width: double.infinity,
-      height: 200.0,
+      height: 270.0,
       padding: const EdgeInsets.symmetric(
         horizontal: 20.0,
         vertical: 15.0,
       ),
       margin: const EdgeInsets.symmetric(
-        horizontal: 15.0,
+        horizontal: 0.0,
         vertical: 0.0,
       ),
       decoration: BoxDecoration(
         color: AppTheme.kSecondaryColor,
-        borderRadius: BorderRadius.circular(10.0),
+        borderRadius: BorderRadius.circular(30.0),
       ),
       child: Column(
         children: [
@@ -31,14 +40,17 @@ class TusCuentas extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
               Text(
-                "TUS CUENTAS",
+                "ÚLTIMOS MOVIMIENTOS",
                 style: TextStyle(
                   color: AppTheme.kPrimaryColor,
                   fontWeight: FontWeight.bold,
                   fontSize: 15,
                 ),
               ),
-              Icon(Icons.more_horiz),
+              Icon(
+                Icons.search,
+                color: Colors.black38,
+              ),
             ],
           ),
 
@@ -77,24 +89,17 @@ class TusCuentas extends StatelessWidget {
 
           Expanded(
             child: ListView.builder(
-              itemCount: getCuentas.length,
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) =>
-                            const DetailsScreen(),
-                      ),
-                    );
-                  },
-                  child: ListTile(
+                itemCount: getCuentas.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
                     title: Text(
                       getCuentas[index],
-                      style: TextStyle(color: Colors.blue[600]),
+                      style: const TextStyle(color: AppTheme.kPrimaryColor),
                     ),
-                    subtitle: Text(getCodigos[index]),
+                    subtitle: Text(
+                      getCodigos[index],
+                      style: const TextStyle(fontSize: 10),
+                    ),
                     trailing: SizedBox(
                       width: 180.0,
                       child: Row(
@@ -102,20 +107,16 @@ class TusCuentas extends StatelessWidget {
                         children: [
                           Text(
                             getSaldos[index],
-                            style: const TextStyle(
-                              color: AppTheme.kPrimaryColor,
+                            style: TextStyle(
+                              color: getColores[index],
                               fontSize: 18.0,
                             ),
                           ),
-                          const SizedBox(width: 10.0),
-                          const Icon(Icons.navigate_next),
                         ],
                       ),
                     ),
-                  ),
-                );
-              },
-            ),
+                  );
+                }),
           ),
         ],
       ),

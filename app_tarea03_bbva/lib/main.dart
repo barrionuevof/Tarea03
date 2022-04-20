@@ -1,3 +1,4 @@
+import 'package:app_tarea03_bbva/screens/details/details_screen.dart';
 import 'package:app_tarea03_bbva/screens/home/home_screen.dart';
 import 'package:app_tarea03_bbva/screens/login/login_screen.dart';
 import 'package:app_tarea03_bbva/screens/splash/splash_screen.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       home: const SplashScreen(),
       //home: const LoginScreen(),
       //home: const HomeScreen(),
+      //home: const DetailsScreen(),
     );
   }
 }

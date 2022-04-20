@@ -8,4 +8,6 @@ class AppTheme {
   static const kTransferir = Color.fromRGBO(76, 171, 206, 1.0);
   static const kRetiro = Color.fromRGBO(73, 209, 124, 1.0);
   static const kPagar = Color.fromRGBO(115, 95, 218, 1.0);
+  static const kPagar2 = Color.fromRGBO(55, 103, 240, 1.0);
+  static const kMas = Color.fromRGBO(0, 68, 129, 1.0);
 }
